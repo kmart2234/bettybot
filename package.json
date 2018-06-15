@@ -1,0 +1,44 @@
+{
+  "name": "bettybot",
+  "version": "1.0.0",
+  "description": "Betty Bot",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf .env",
+    "decrypt-dev": "cross-var echo $DEV_ENV_PW | decrypt .private/dev.cast5 .env",
+    "decrypt-prod": "cross-var echo $PROD_ENV_PW | decrypt .private/prod.cast5 .env",
+    "dev": "echo $DEV_ENV_PW | decrypt .private/dev.cast5 .env",
+    "encrypt-dev": "cross-var echo $DEV_ENV_PW | encrypt .env .private/dev.cast5",
+    "encrypt-prod": "cross-var echo $PROD_ENV_PW | encrypt .env .private/prod.cast5",
+    "prod": "echo $PROD_ENV_PW | decrypt .private/prod.cast5 .env",
+    "start": "/opt/bettybot/node_modules/hubot/bin/hubot --adapter slack",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmart2234/bettybot.git"
+  },
+  "keywords": [
+    "BettyBot"
+  ],
+  "author": "Kevin Martin <21.kmart@gmail.com> (https://github.com/kmart2234)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmart2234/bettybot/issues"
+  },
+  "homepage": "https://github.com/kmart2234/bettybot#readme",
+  "dependencies": {
+    "config-leaf": "0.3.0",
+    "cross-var": "1.1.0",
+    "hubot": "2.19.0",
+    "hubot-pugme": "0.1.1",
+    "hubot-redis-brain": "0.0.4",
+    "hubot-slack": "4.4.0"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "hubot-test-helper": "1.9.0",
+    "mocha": "5.2.0",
+    "rimraf": "2.6.2"
+  }
+}
